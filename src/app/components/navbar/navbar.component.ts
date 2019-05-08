@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { AuthService } from "../../services/auth.service";
+import {AuthService} from "../../services/auth.service";
+import {AngularFireAuth} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-navbar',
@@ -10,20 +10,28 @@ import { AuthService } from "../../services/auth.service";
 export class NavbarComponent implements OnInit {
 
   nombreComunidad: String = 'Las Yucas';
+  isLogged = false;
 
-  constructor(private auth: AuthService) {
-    auth.handleAuthentication();
-  }
+  constructor(private authService: AuthService, private afAuth: AngularFireAuth ) {}
 
   ngOnInit() {
+    this.getCurrentUser();
   }
 
-  login() {
-    this.auth.login();
+  getCurrentUser(){
+  this.authService.isAuth().subscribe( auth => {
+    if(auth){
+      console.log('User logged');
+      this.isLogged = true;
+    } else {
+      console.log('NO logged');
+      this.isLogged = false;
+    }
+  })
   }
 
-  salir() {
-    this.auth.logout();
+  onLogout() {
+    this.authService.logoutUser();
   }
 
 }

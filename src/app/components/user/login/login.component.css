@@ -1,0 +1,16 @@
+.form-control.login-user {
+  border: 0 solid #fff !important;
+}
+
+.btn-social {
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+.btn-google {
+  background: #dd4b39;
+  color: white!important;
+}

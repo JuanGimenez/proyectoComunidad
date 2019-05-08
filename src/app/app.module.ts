@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { HomeLogedComponent } from './components/home-loged/home-loged.component';
@@ -11,10 +10,17 @@ import {compileNgModuleFromRender2} from "@angular/compiler/src/render3/r3_modul
 
 //services
 
-import { AuthService } from "./services/auth.service";
 import { ReservasComponent } from './components/reservas/reservas.component';
-import { ComentariosComponent } from './components/comentarios/comentarios.component'
-import { AuthGuardService } from "./services/auth-guard.service";
+import { ComentariosComponent } from './components/comentarios/comentarios.component';
+import { UserComponent } from './components/user/user.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { RegisterComponent } from './components/user/register/register.component'
+import { LoginComponent } from "./components/user/login/login.component";
+import { FormsModule } from "@angular/forms";
+import { environment } from "../environments/environment"
+import {AngularFireModule} from "@angular/fire";
+import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {AngularFireAuth} from "@angular/fire/auth";
 
 @NgModule({
   declarations: [
@@ -24,13 +30,19 @@ import { AuthGuardService } from "./services/auth-guard.service";
     HomeComponent,
     HomeLogedComponent,
     ReservasComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    UserComponent,
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
