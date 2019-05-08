@@ -21,7 +21,6 @@ export class AuthService {
     scope: 'openid profile'
   });
 
-
   constructor(public router: Router) {
     this._idToken = '';
     this._accessToken = '';

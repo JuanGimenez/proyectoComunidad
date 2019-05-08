@@ -8,7 +8,7 @@
 
     <ul class="list-group">
       <li class="list-group-item">{{profile.name}}</li>
-      <li class="list-group-item">{{profile.nickname}}</li>
+      <li class="list-group-item">{{user_metadata | json}}</li>
       <li class="list-group-item">{{profile.updated_at | date:'dd/MM/yyyy'}}</li>
     </ul>
 
@@ -16,6 +16,7 @@
 </div>
 <pre>
   {{profile | json}}
+  {{openid | json}}
   {{profile.user | json}}
   {{profile.users | json}}
 
