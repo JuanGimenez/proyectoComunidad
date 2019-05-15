@@ -29,7 +29,7 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     HomeLogedComponent,
     ReservasComponent,
     ComentariosComponent,
-    UsuarioComponent
+    UsuarioComponent,
   ],
   imports: [
     BrowserModule,
