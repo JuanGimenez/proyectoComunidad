@@ -6,14 +6,17 @@ import {ReservasComponent} from "./components/reservas/reservas.component";
 import {ComentariosComponent} from "./components/comentarios/comentarios.component";
 import {AuthGuardService} from "./services/auth-guard.service";
 import {HomeLogedComponent} from "./components/home-loged/home-loged.component";
+import { UsuarioComponent } from "./components/usuario/usuario.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'user/:name', component: HomeComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'homeLoged', component: HomeLogedComponent, canActivate: [ AuthGuardService ]},
-  { path: 'reservas', component: ReservasComponent, canActivate: [ AuthGuardService ]},
-  { path: 'comentarios', component: ComentariosComponent, canActivate: [ AuthGuardService ]},
-  { path: '**', pathMatch: 'full', redirectTo: 'homeLoged' },
+  { path: 'homeLoged', component: HomeLogedComponent},
+  { path: 'reservas', component: ReservasComponent},
+  { path: 'comentarios', component: ComentariosComponent},
+  { path: 'usuario', component: UsuarioComponent},
+
 
 ];
 

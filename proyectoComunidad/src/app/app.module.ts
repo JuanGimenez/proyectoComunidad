@@ -15,6 +15,10 @@ import { AuthService } from "./services/auth.service";
 import { ReservasComponent } from './components/reservas/reservas.component';
 import { ComentariosComponent } from './components/comentarios/comentarios.component'
 import { AuthGuardService } from "./services/auth-guard.service";
+import {HomeService} from "./services/home.service";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +28,16 @@ import { AuthGuardService } from "./services/auth-guard.service";
     HomeComponent,
     HomeLogedComponent,
     ReservasComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
