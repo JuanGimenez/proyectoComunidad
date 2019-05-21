@@ -19,6 +19,7 @@ import {HomeService} from "./services/home.service";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     HomeLogedComponent,
     ReservasComponent,
     ComentariosComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

@@ -43,7 +43,18 @@ export class HomeService {
         console.log(res);
         return res;
       }))
+  }
 
+  getUser() {
+    return this.http.get(this.homeURL)
+      .pipe(map( res => {return res}));
+
+  }
+
+  borrarUser(key$:string) {
+    let url = `${ this.usuarioURL }/${ key$ }.json `;
+    return this.http.delete( url )
+      .pipe( map( res => {return res}))
 
   }
 

@@ -1,3 +1,28 @@
-<p>
-  usuario works!
-</p>
+<div class="table-responsive">
+
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>#</th>
+        <th>nombre</th>
+        <th>apellidos</th>
+        <th>portal</th>
+        <th>bloque</th>
+        <th>piso</th>
+        <th>letra</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let k of users | keys; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{users[k].nombre}}</td>
+      <td>{{users[k].apellidos}}</td>
+      <td>{{users[k].portal}}</td>
+      <td>{{users[k].bloque}}</td>
+      <td>{{users[k].piso}}</td>
+      <td>{{users[k].letra}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

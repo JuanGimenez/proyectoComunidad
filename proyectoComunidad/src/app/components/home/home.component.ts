@@ -3,6 +3,7 @@ import { NgForm} from "@angular/forms";
 import { User} from "../../interfaces/home.interfaces";
 import {HomeService} from "../../services/home.service";
 import {Router, ActivatedRoute} from "@angular/router";
+import {isLineBreak} from "codelyzer/angular/sourceMappingVisitor";
 
 
 
@@ -29,9 +30,19 @@ export class HomeComponent implements OnInit {
                private router: Router,
                private route: ActivatedRoute
              ) {
+
     this.route.params.subscribe(parametros => {
       console.log(parametros);
       this.name = parametros['name'];
+      console.log(this.name);
+
+      // if(this.name !== "user"){
+      //   this.homeService.getUser(this.name).subscribe((data: User) => {
+      //     this.user = data;
+      //   })
+      // }else{
+      //
+      // }
     })
   }
 
@@ -45,6 +56,7 @@ export class HomeComponent implements OnInit {
       this.homeService.nuevoUser(this.user)
         .subscribe( data => {
           this.router.navigate(['/user', data['name']]);
+          this.nuevo = true;
           },
           error=> console.log(error));
     }else{
@@ -56,6 +68,12 @@ export class HomeComponent implements OnInit {
 
     }
 
+  }
+
+  borra(key$:string) {
+    this.homeService.borrarUser(key$).subscribe(respuesta =>{
+      console.log(respuesta);
+    })
   }
 
   actualizar() {}
