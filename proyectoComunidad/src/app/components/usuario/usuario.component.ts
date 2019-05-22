@@ -22,4 +22,14 @@ export class UsuarioComponent implements OnInit {
   ngOnInit() {
   }
 
+  borrarUser(key$:string) {
+    this.homeService.borrarUser(key$).subscribe( res => {
+      if( res ) {
+        console.error(res);
+      } else {
+        delete this.users[key$];
+      }
+    })
+  }
+
 }

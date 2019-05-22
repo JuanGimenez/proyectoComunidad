@@ -10,6 +10,7 @@
         <th>bloque</th>
         <th>piso</th>
         <th>letra</th>
+        <th class="text-right">Opciones</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,10 @@
       <td>{{users[k].bloque}}</td>
       <td>{{users[k].piso}}</td>
       <td>{{users[k].letra}}</td>
+      <td class="text-right">
+        <button type="button" class="btn btn-outlet-success" [routerLink]="['/user', k]">Editar</button>
+        <button type="button" class="btn btn-outlet-danger" (click)="borrarUser(k)">Borrar</button>
+      </td>
     </tr>
     </tbody>
   </table>
